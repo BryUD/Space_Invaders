@@ -30,7 +30,7 @@ public class GazeButton : MonoBehaviour
     }
     public void OnPointerClick()
     {
-        animator.Play(onPointerClickAnimationName);
+        animator.Play(onPointerClickAnimationName, 0, 0f);
         onPointerClick.Invoke();
     }
 }
