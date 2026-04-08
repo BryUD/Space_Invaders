@@ -283,7 +283,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Asteroid
   bulletDamage: 25
-  speed: 5
+  speed: 15
+  asteroidDamage: 10
+  distanceToTarget: 2
   onAsteroidDestroyed:
     m_PersistentCalls:
       m_Calls: []

@@ -1,0 +1,71 @@
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.Rendering;
+
+public class EnemySpaceship : MonoBehaviour
+{
+    [SerializeField]
+    private float damage = 20f;
+    [SerializeField]
+    private float playerDamage = 10f;
+    [SerializeField]
+    private Transform bulletPivot;
+    [SerializeField]
+    private string[] flyAnimationNames;
+    [SerializeField]
+    private Animator animator;
+    private Health targetHealth;
+    [SerializeField]
+    private Health health;
+    [SerializeField]
+    private UnityEvent<Transform> onDestroyed;
+    public UnityEvent<Transform> OnDestroyed => onDestroyed;
+    public Health TargetHealth
+    {
+        set
+        {
+            targetHealth = value;
+        }
+    }
+    private InstantiatePoolObjects bulletPool;
+    public InstantiatePoolObjects BulletPool
+    {
+        set
+        {
+            bulletPool = value;
+        }
+    }
+    private void OnEnable()
+    {
+        int randomIndex = Random.Range(0, flyAnimationNames.Length);
+        animator.Play(flyAnimationNames[randomIndex], 0, 0f);
+    }
+    public void OnPointerClick()
+    {
+        health.TakeDamage(playerDamage);
+    }
+    public void DestroySpaceship()
+    {
+        onDestroyed.Invoke(transform);
+        gameObject.SetActive(false);
+    }
+    private void OnDisable()
+    {
+        targetHealth = null;
+        onDestroyed.RemoveAllListeners();
+    }
+    public void ShootTarget()
+    {
+        if (targetHealth != null)
+        {
+            bulletPool.InstantiateObject(transform.position);
+            Vector3 direction = (targetHealth.transform.position - transform.position).normalized;
+            bulletPivot.forward = direction;
+            Transform bullet = bulletPool.GetCurrentObject().transform;
+            bullet.transform.LookAt(targetHealth.transform.position);
+            targetHealth.TakeDamage(damage);
+            SoundManager.instance.Play("ArmaLaser");
+        }
+    }
+
+}
