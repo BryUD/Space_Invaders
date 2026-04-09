@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering;
+using System.Collections;
 
 public class EnemySpaceship : MonoBehaviour
 {
@@ -14,12 +15,14 @@ public class EnemySpaceship : MonoBehaviour
     private string[] flyAnimationNames;
     [SerializeField]
     private Animator animator;
+    [SerializeField]
     private Health targetHealth;
     [SerializeField]
     private Health health;
     [SerializeField]
     private UnityEvent<Transform> onDestroyed;
     public UnityEvent<Transform> OnDestroyed => onDestroyed;
+    private Coroutine animationCoroutine;
     public Health TargetHealth
     {
         set
@@ -27,6 +30,7 @@ public class EnemySpaceship : MonoBehaviour
             targetHealth = value;
         }
     }
+    [SerializeField]
     private InstantiatePoolObjects bulletPool;
     public InstantiatePoolObjects BulletPool
     {
@@ -37,8 +41,17 @@ public class EnemySpaceship : MonoBehaviour
     }
     private void OnEnable()
     {
+        health.InitializeHealth();
         int randomIndex = Random.Range(0, flyAnimationNames.Length);
         animator.Play(flyAnimationNames[randomIndex], 0, 0f);
+        animationCoroutine = StartCoroutine(AnimationCoroutine());
+    }
+
+    private IEnumerator AnimationCoroutine()
+    {
+        yield return null;
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+        gameObject.SetActive(false);
     }
     public void OnPointerClick()
     {
@@ -53,6 +66,11 @@ public class EnemySpaceship : MonoBehaviour
     {
         targetHealth = null;
         onDestroyed.RemoveAllListeners();
+        if(animationCoroutine != null)
+        {
+            StopCoroutine(animationCoroutine);
+            animationCoroutine = null;
+        }
     }
     public void ShootTarget()
     {
