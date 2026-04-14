@@ -48,7 +48,7 @@ public class Asteroid : MonoBehaviour
 
     private void Update()
     {
-        if (target != null)
+        if (target != null && gameObject.activeInHierarchy)
         {
             Vector3 direction = (target.position - transform.position).normalized;
             transform.position += direction * speed * Time.deltaTime;
@@ -63,6 +63,7 @@ public class Asteroid : MonoBehaviour
 
     public void DestroyAsteroid()
     {
+        if (!gameObject.activeInHierarchy) return;
         target = null;
         asteroidCollider.enabled = false;
         animator.Play("Explode", 0, 0f);
@@ -79,6 +80,7 @@ public class Asteroid : MonoBehaviour
 
     private void OnDisable()
     {
+        StopAllCoroutines();
         target = null;
         onAsteroidDestroyed.RemoveAllListeners();
     }
