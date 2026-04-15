@@ -9,12 +9,12 @@ public class Asteroid : MonoBehaviour
 
     private Health health;
     [SerializeField]
-    private float bulletDamage = 25f;
+    private float bulletDamage = 5f;
     [SerializeField]
     private float speed = 5f;
     [SerializeField]
 
-    private float asteroidDamage = 10f;
+    private float asteroidDamage = 15f;
     [SerializeField]
     private float distanceToTarget = 2f;
     [SerializeField]

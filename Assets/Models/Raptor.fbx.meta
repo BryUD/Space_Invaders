@@ -3,7 +3,67 @@ guid: a356d3b6b0dd91e469db3c4bf71b1f4e
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Canon
+    second: {fileID: 2100000, guid: 4340fddfa2a304347a4cf2769a34a38d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dark Metal
+    second: {fileID: 2100000, guid: f33b82f60e35a32419d6f27535eb501d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fire
+    second: {fileID: 2100000, guid: 4345d919349dc554a9462063df17fc4e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass
+    second: {fileID: 2100000, guid: 58393d980daae004aa3933fcebab0945, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ligth 1
+    second: {fileID: 2100000, guid: fbdacb207090dea4bb7c9b51722c814f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Main
+    second: {fileID: 2100000, guid: e22bad364f0d5164db23f3dac6aee8c5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Main Canon
+    second: {fileID: 2100000, guid: 5eca124c72ff8f94f85afc8c6ebf5533, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal
+    second: {fileID: 2100000, guid: 1a77720909a089546996b3795a6287e5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Turbine
+    second: {fileID: 2100000, guid: 8621a14e132ea424eaf40b73aaa0775c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wings 1
+    second: {fileID: 2100000, guid: b65018761de08174d980386b79b51e90, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wings 2
+    second: {fileID: 2100000, guid: caef037e1bb18304f822199a1230d424, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: black
+    second: {fileID: 2100000, guid: 359360e290a5c564fa4390524cf39ea4, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

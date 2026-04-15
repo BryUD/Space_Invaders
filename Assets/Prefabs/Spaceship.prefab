@@ -72,8 +72,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5a1c5dd4868cd144b90a700b4d1a117, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpaceship
-  damage: 20
-  playerDamage: 30
+  damage: 50
+  playerDamage: 10
   bulletPivot: {fileID: 4503859464730287061}
   flyAnimationNames:
   - Fly1
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   _healthSlider: {fileID: 8792199061769183045}
-  _maxHealth: 100
+  _maxHealth: 800
   _onTakeDamage:
     m_PersistentCalls:
       m_Calls: []
